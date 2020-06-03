@@ -1,0 +1,23 @@
+
+#include <stdio.h>
+#include <stdint.h>
+#define mask 0b10000000
+int main()
+{   uint32_t ip32=254;
+    uint8_t ip8[4]={0,0,0,0};
+    for(uint8_t j=0;j<8;j++ )
+    {
+    for(uint8_t i=0;i<8;i++ )
+    {   //d=mask;
+       // d=(mask*(ip32&1));
+     ip8[j]=ip8[j]>>1;
+        ip8[j]=ip8[j]|(mask*(ip32&1));
+         // printf("%d",b[j]);
+        
+        ip32=ip32>>1;
+    }
+    }
+    
+    printf("%d.%d.%d.%d",ip8[3],ip8[2],ip8[1],ip8[0]);
+    return 0;
+}
